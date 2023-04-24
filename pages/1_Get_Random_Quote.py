@@ -54,5 +54,20 @@ st.write("")
 st.write("")
 col1, col2 = st.columns(2)
 btn1 = col1.button("Get a Random Quote")
-btn2 = col2.button("Post to LinkedIn", on_click=postToLinkedIn)
+#btn2 = col2.button("Post to LinkedIn", on_click=postToLinkedIn)
+
+text = textToPost = finalQuote + "\n\nvia QuoteApp by Raghavendra"
+components.html(
+    f"""
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" 
+        data-text="{text}"
+        data-url=" "
+        data-show-count="false">
+        data-size="Large" 
+        data-hashtags="streamlit,python"
+        Tweet
+        </a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    """
+)
 
