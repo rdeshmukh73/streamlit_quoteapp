@@ -6,7 +6,7 @@ import streamlit.components.v1 as components
 st.markdown("# Get a Random Quote")
 st.sidebar.header("Random Quote")
 st.write(
-    """This page shows a Random Quote from a randomly picked Author.  We can also post the Quote to LinkedIn!"""
+    """This page shows a Random Quote from a randomly picked Author.  We can also post the Quote to Twitter!"""
 )
 finalQuote = ""
 
@@ -39,12 +39,13 @@ custom_style = """
     """
 if response.status_code == 200:
     # Display the API response in a multiline text box
-    st.subheader("Random Quote")
+    #st.subheader("Random Quote")
     data = response.json()
     author = data['Author']
     quoteText = data['Quote']
     finalQuote = quoteText + "\n by:  " + author
-    styled_string = f'<span class="custom">{finalQuote}</span>'
+    styled_string = f'<span class="custom">{quoteText}</span>'
+    st.subheader(f"{author} says...")
     st.markdown(custom_style + styled_string, unsafe_allow_html=True)   
     #st.markdown(f"<div style='border: 1px solid black; padding: 10px'>{finalQuote}</div>", unsafe_allow_html=True)
 
